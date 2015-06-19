@@ -33,7 +33,7 @@ public class PosNeg {
 //        return false;
 
         //can further simplify
-        
+
         if (negative) {
             return (a < 0 && b < 0);
         } else {
