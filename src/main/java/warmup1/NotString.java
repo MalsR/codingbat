@@ -9,10 +9,12 @@ public class NotString {
 //    notString("x") → "not x"
 //    notString("not bad") → "not bad"
 
-    public String notString(String str) {
-        if (!str.contains("not")) {
-            return "not " + str;
+    public String notString(String stringToCompare) {
+
+        if (stringToCompare.startsWith("not")) {
+            return stringToCompare;
+        } else {
+            return "not " + stringToCompare;
         }
-        return null;
     }
 }
