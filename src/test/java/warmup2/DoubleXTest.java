@@ -33,4 +33,18 @@ public class DoubleXTest {
 
         assertFalse(doubleX.doubleX("xaxx"));
     }
+
+    @Test
+    public void returnsFalseWhenStringIsEmpty() {
+        DoubleX doubleX = new DoubleX();
+
+        assertFalse(doubleX.doubleX(""));
+    }
+
+    @Test
+    public void returnsFalseWhenStringDoesNotHaveAnyX() {
+        DoubleX doubleX = new DoubleX();
+
+        assertFalse(doubleX.doubleX("abc"));
+    }
 }

@@ -9,11 +9,19 @@ public class DoubleX {
 //    doubleX("xxxxx") → true
 
     boolean doubleX(String str) {
+//        for (int i = 0; i < str.length() - 1; i++) {
+//            if ('x' == str.charAt(i)) {
+//                int endIndex = i + 2 > str.length() ? str.length() : i + 2;
+//                String stringToTest = str.substring(i, endIndex);
+//                return "xx".equals(stringToTest);
+//            }
+//        }
+//        return false;
+
+        //Another simplified way
         for (int i = 0; i < str.length() - 1; i++) {
             if ('x' == str.charAt(i)) {
-                int endIndex = i + 2 > str.length() ? str.length() : i + 2;
-                String stringToTest = str.substring(i, endIndex);
-                return "xx".equals(stringToTest);
+                return str.startsWith("xx", i);
             }
         }
         return false;
