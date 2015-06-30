@@ -12,12 +12,12 @@ public class Last2 {
     public int last2(String str) {
         int numberOfLengthTwoSubStrings = 0;
 
-        if (str.length() > 1) {
-            int startIndex = str.length() - 2;
-            String stringToCheck = str.substring(startIndex, str.length());
+        if (str.length() > 2) {
+            String stringToCheck = getLastTwoChars(str);
 
             for (int i = 0; i < str.length() - 1; i++) {
                 int endIndex = i + 2;
+                //check to avoid string index out of bounds on substring
                 if (endIndex < str.length()) {
                     String nextTwoSubString = str.substring(i, endIndex);
                     if (nextTwoSubString.equals(stringToCheck)) {
@@ -27,5 +27,11 @@ public class Last2 {
             }
         }
         return numberOfLengthTwoSubStrings;
+    }
+
+    private String getLastTwoChars(String str) {
+        //Get the last two chars of the given string
+        int startIndex = str.length() - 2;
+        return str.substring(startIndex, str.length());
     }
 }
