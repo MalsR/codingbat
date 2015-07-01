@@ -9,16 +9,25 @@ public class Array123 {
 //    array123({1, 1, 2, 1, 2, 3}) → true
 
     public boolean array123(int[] nums) {
-        for (int i = 0; i < nums.length; i++) {
-            if (nums[i] == 1 && (i+3 <= nums.length) ) {
-                //then check if followed by 2 and 3
-                int secondNumber = nums[i + 1];
-                int thirdNumber = nums[i + 2];
-                if (secondNumber == 2 && 3 == thirdNumber) {
-                    return true;
-                }
+//        for (int i = 0; i < nums.length; i++) {
+//            if (nums[i] == 1 && (i+3 <= nums.length) ) {
+//                //then check if followed by 2 and 3
+//                int secondNumber = nums[i + 1];
+//                int thirdNumber = nums[i + 2];
+//                if (secondNumber == 2 && 3 == thirdNumber) {
+//                    return true;
+//                }
+//            }
+//        }
+//        return false;
+
+        //simpler
+        for (int i = 0; i < nums.length - 2; i++) {
+            if (nums[i] == 1 && nums[i+1] == 2 && nums[i+2] == 3) {
+                return true;
             }
         }
+
         return false;
     }
 }
