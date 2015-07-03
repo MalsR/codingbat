@@ -14,10 +14,14 @@ public class StringX {
 
         for (int i = 0; i < str.length(); i++) {
             char charAtIndex = str.charAt(i);
-            if ( 'x'== charAtIndex && (i == 0 || i == str.length()-1) || 'x' != charAtIndex) {
+            if ( isXCharAtStartOrEnd(str, i, charAtIndex) || 'x' != charAtIndex) {
                 result.append(charAtIndex);
             }
         }
         return result.toString();
+    }
+
+    private boolean isXCharAtStartOrEnd(String str, int i, char charAtIndex) {
+        return 'x'== charAtIndex && (i == 0 || i == str.length()-1);
     }
 }
