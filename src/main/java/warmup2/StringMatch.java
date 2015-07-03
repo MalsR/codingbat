@@ -9,7 +9,24 @@ public class StringMatch {
 //    stringMatch("abc", "abc") → 2
 //    stringMatch("abc", "axc") → 0
 
+    //Another simpler way
     public int stringMatch(String a, String b) {
+        int maxLengthToIterate = Math.min(a.length(), b.length());
+        int matchingSubStrings = 0;
+
+        for (int i = 0; i < maxLengthToIterate - 1; i++) {
+            String stringASubString = a.substring(i, i + 2);
+            String stringBSubString = b.substring(i, i + 2);
+
+            if (stringASubString.equals(stringBSubString)) {
+                matchingSubStrings++;
+            }
+        }
+
+        return matchingSubStrings;
+    }
+
+    public int stringMatch2(String a, String b) {
         int numberOfMatchingSubString = 0;
 
         for (int i = 0; i < a.length() - 1; i++) {
