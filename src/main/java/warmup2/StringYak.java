@@ -13,33 +13,19 @@ public class StringYak {
         StringBuilder result = new StringBuilder();
 
         for (int i = 0; i < str.length(); i++) {
-            if ('y' == str.charAt(i)) {
-                //then check if next->next-> is a k
-                int nextNextIndexPosition = i + 2 > str.length() - 1 ? str.length() - 1 : i + 2;
-                char nextNextChar = str.charAt(nextNextIndexPosition);
-                if ('k' == nextNextChar) {
-                    //then we need to reset i to skip
-                    i = i + 2;
-                } else {
-                    result.append(str.charAt(i));
-                }
+            if ('y' == str.charAt(i) && 'k' == getSecondCharFromIndex(str, i)) {
+                //then we need to reset i to skip 'y-any other char-k'
+                i = i + 2;
             } else {
                 result.append(str.charAt(i));
             }
         }
-
-//        for (int i = 0; i < str.length(); i = i + 3) {
-//            int endIndex = i + 3 > str.length() ? str.length() : i + 3;
-//            String substring = str.substring(i, endIndex);
-//
-//            if ('y' == substring.charAt(0) && 'k' == substring.charAt(substring.length() - 1)) {
-//                //then need to omit this
-//            } else {
-//                result.append(substring);
-//            }
-//
-//
-//        }
         return result.toString();
+    }
+
+    private char getSecondCharFromIndex(String str, int index) {
+        //then check if next->next-> is a k index.e (index+2)
+        int nextNextIndexPosition = index + 2 > str.length() - 1 ? str.length() - 1 : index + 2;
+        return str.charAt(nextNextIndexPosition);
     }
 }
