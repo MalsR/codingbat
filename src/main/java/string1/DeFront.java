@@ -12,11 +12,13 @@ public class DeFront {
     public String deFront(String str) {
         StringBuilder result = new StringBuilder();
 
+        //Iterates through entire string and adds all non chars except the first two, but checks to see if first is 'a'
+        //and second is 'b' before adding them
         for (int i = 0; i <= str.length() - 1; i++) {
             char charAtIndex = str.charAt(i);
 
             if (i <= 1) {
-                if (i == 0 && charAtIndex == 'b') {
+                if (i == 0 && charAtIndex == 'a') {
                     result.append(charAtIndex);
                 } else if (i == 1 && charAtIndex == 'b') {
                     result.append(charAtIndex);
