@@ -13,7 +13,7 @@ public class StartWord {
 
     public String startWord(String str, String word) {
 
-        //When str == "" and/or when word.length is greater than str.length
+        //When str equals "" and/or when word.length is greater than str.length
         if (str.length() > 0 && str.length() >= word.length()) {
             String wordToCompare = word.substring(1, word.length());
             String sectionOfMainStr = str.substring(1, word.length());
