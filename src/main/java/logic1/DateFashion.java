@@ -18,12 +18,10 @@ public class DateFashion {
 
         if (you <= 2 || date <= 2) {
             return 0;
-        } else if (8 > you && you > 2 && 8 > date && date > 2) {
-            return 1;
         } else if (you >= 8 || date >= 8) {
             return 2;
+        } else {
+            return 1;
         }
-
-        return -1;
     }
 }

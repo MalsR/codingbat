@@ -37,4 +37,11 @@ public class DateFashionTest {
         assertEquals(1, dateFashion.dateFashion(5, 5));
         assertEquals(1, dateFashion.dateFashion(3, 7));
     }
+
+    @Test
+    public void canGetTableWhenOneHasHigherRatingAndOtherHasMidRating() {
+        DateFashion dateFashion = new DateFashion();
+
+        assertEquals(2, dateFashion.dateFashion(8, 5));
+    }
 }
