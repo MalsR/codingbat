@@ -20,12 +20,21 @@ public class InOrderEqualTest {
 
         assertFalse(inOrderEqual.inOrderEqual(5, 5, 2, false));
         assertFalse(inOrderEqual.inOrderEqual(5, 5, 7, false));
+        assertFalse(inOrderEqual.inOrderEqual(5, 7, 6, false));
     }
 
     @Test
-    public void returnsTrueWhenNumbersIncludingNegativeHaveStrictIncreasingOrder() {
+    public void returnsTrueWhenNumbersIncludingNegativeAndHaveStrictIncreasingOrder() {
         InOrderEqual inOrderEqual = new InOrderEqual();
 
         assertTrue(inOrderEqual.inOrderEqual(-5, 0, 10, false));
+    }
+
+    @Test
+    public void returnsTrueWhenEqualNumbersExistsAndEqualOkIsTrueAndInStrictIncreasingOrder() {
+        InOrderEqual inOrderEqual = new InOrderEqual();
+
+        assertTrue(inOrderEqual.inOrderEqual(5, 5, 7, true));
+        assertTrue(inOrderEqual.inOrderEqual(-1, -1, 7, true));
     }
 }

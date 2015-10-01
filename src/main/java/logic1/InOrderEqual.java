@@ -13,9 +13,10 @@ public class InOrderEqual {
 
     public boolean inOrderEqual(int a, int b, int c, boolean equalOk) {
 
-        int abDifference = b - a;
-        int bcDifference = c - b;
-
-        return (abDifference*2 == bcDifference);
+        if (equalOk) {
+            return (a <= b && b <= c);
+        } else {
+            return b > a && c > b;
+        }
     }
 }
