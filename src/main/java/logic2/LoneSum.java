@@ -11,16 +11,20 @@ public class LoneSum {
 
     public int loneSum(int a, int b, int c) {
 
-        if (a != b && a != c && b != c) {
-            return (a + b + c);
-        } else if (a == b && a != c) {
-            return c;
-        } else if (b == c && b != a) {
-            return a;
-        } else if (c == a && a != b) {
-            return b;
-        } else {
-            return 0;
+        int sum = 0;
+
+        if (a != b && a != c) {
+            sum += a;
         }
+
+        if (b != c && b != a) {
+            sum += b;
+        }
+
+        if (c != a && c != b) {
+            sum += c;
+        }
+
+        return sum;
     }
 }
