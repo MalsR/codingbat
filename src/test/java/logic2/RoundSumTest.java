@@ -19,5 +19,4 @@ public class RoundSumTest {
 
         assertEquals(30, roundSum.roundSum(11, 24, 4));
     }
-
 }
