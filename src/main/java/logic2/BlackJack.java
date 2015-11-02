@@ -11,15 +11,17 @@ public class BlackJack {
 
     public int blackjack(int a, int b) {
 
-        if (a > 21 && b > 21) {
-            return 0;
-        } else if (a <= 21 && b > 21) {
-            return a;
-        } else if (b <= 21 && a > 21) {
-            return b;
-        } else {
-            //Then both values are equal or less than 21
-            return (a > b ? a : b);
+        int aEvaluated = a;
+        int bEvaluated = b;
+
+        if (a > 21) {
+            aEvaluated = 0;
         }
+
+        if (b > 21) {
+            bEvaluated = 0;
+        }
+
+        return Math.max(aEvaluated, bEvaluated);
     }
 }
