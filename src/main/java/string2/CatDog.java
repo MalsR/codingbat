@@ -14,10 +14,11 @@ public class CatDog {
         int wordDogCount = 0;
 
         for (int i = 0; i < str.length(); i++) {
-            char chatAtIndexI = str.charAt(i);
+            char charAtIndex = str.charAt(i);
 
-            if ((chatAtIndexI == 'c' || chatAtIndexI == 'd') && (i + 3 <= str.length())) {
-                //starts with either a 'c' or 'd' so find if the next two chars form up 'cat' or 'dog
+            if ((charAtIndex == 'c' || charAtIndex == 'd') && (i + 3 <= str.length())) {
+                //if charAtIndex starts with either 'c' or 'd' then use substring to get the three letter word
+                //which includes charAtIndex character
                 String wordIncludingIndex = str.substring(i, i + 3);
 
                 if ("cat".equals(wordIncludingIndex)) {
