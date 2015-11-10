@@ -14,7 +14,7 @@ public class CountCodeTest {
     }
 
     @Test
-    public void returnsOneWhenWordCodeAppearsThrice() {
+    public void returnsThreeWhenWordCodeAppearsThrice() {
         CountCode countCode = new CountCode();
 
         assertEquals("Expected the word code to be included thrice", 3, countCode.countCode("codeaaacodebbcodebc"));
