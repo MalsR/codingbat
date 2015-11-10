@@ -20,7 +20,7 @@ public class CountCode {
                 //Then use substring to get string that includes the 4 next chars including the charAtIndex
                 String subStringWord = str.substring(i, i + 4);
 
-                if ("code".equals(subStringWord)) {
+                if (subStringWord.charAt(1) == 'o' && subStringWord.charAt(3) == 'e') {
                     result++;
                 }
             }

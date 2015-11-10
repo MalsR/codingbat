@@ -19,4 +19,25 @@ public class CountCodeTest {
 
         assertEquals("Expected the word code to be included thrice", 3, countCode.countCode("codeaaacodebbcodebc"));
     }
+
+    @Test
+    public void returnsTwoWhenWordCoXeAppearsWithXAsWildcardCharacter() {
+        CountCode countCode = new CountCode();
+
+        assertEquals("Expected to return two as the words coze & cope exists", 2, countCode.countCode("cozexxcope"));
+    }
+
+    @Test
+    public void returnsZeroWhenNoWordWithCoXeAppearsWithXAsWildcardCharacter() {
+        CountCode countCode = new CountCode();
+
+        assertEquals("Expected to return zero", 0, countCode.countCode("hellchowarec"));
+    }
+
+    @Test
+    public void returnsZeroWhenStringIsEmpty() {
+        CountCode countCode = new CountCode();
+
+        assertEquals("Expected to return zero", 0, countCode.countCode(""));
+    }
 }
