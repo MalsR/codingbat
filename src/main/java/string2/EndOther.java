@@ -18,7 +18,7 @@ public class EndOther {
         if (lowerCaseA.equals(lowerCaseB)) {
             return true;
         } else {
-            //Did not move the below common code to separate method to keep it simple
+            //Did not move the common code below to separate method to keep it simple
             if (a.length() > b.length()) {
                 int startIndex = a.length() - b.length();
                 String subStringOfA = lowerCaseA.substring(startIndex, a.length());
