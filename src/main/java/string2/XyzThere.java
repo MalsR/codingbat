@@ -19,7 +19,8 @@ public class XyzThere {
             char charAtIndex = str.charAt(i);
 
             if (charAtIndex == 'x' && (i + 3 <= str.length())) {
-                //Now check if the char before i is not full stop '.'
+
+                //If i is zero then x is the start of the string OR check if the char before i is not full stop '.'
                 if (i == 0 || '.' != str.charAt(i - 1)) {
                     String subString = str.substring(i, i + 3);
 
