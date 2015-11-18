@@ -26,4 +26,32 @@ public class XyBalanceTest {
 
         assertTrue(xyBalance.xyBalance("aaxbyb"));
     }
+
+    @Test
+    public void returnsTrueWhenThereIsNoXCharacterInString() {
+        XyBalance xyBalance = new XyBalance();
+
+        assertTrue(xyBalance.xyBalance("aaabbb"));
+    }
+
+    @Test
+    public void returnsTrueWhenStringContainsOnlySingleCharacterY() {
+        XyBalance xyBalance = new XyBalance();
+
+        assertTrue(xyBalance.xyBalance("y"));
+    }
+
+    @Test
+    public void returnsTrueWhenStringIsEmpty() {
+        XyBalance xyBalance = new XyBalance();
+
+        assertTrue(xyBalance.xyBalance(""));
+    }
+
+    @Test
+    public void returnsFalseWhenStringContainsOnlyX() {
+        XyBalance xyBalance = new XyBalance();
+
+        assertFalse(xyBalance.xyBalance("x"));
+    }
 }
