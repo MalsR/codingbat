@@ -14,31 +14,26 @@ public class XyBalance {
     public boolean xyBalance(String str) {
 
         if (str != null && str.length() != 0) {
-            int rightMostXIndex = 0;
-            boolean stringHasX = false;
+            int rightMostXIndex = -1;
 
             //Find the index of the right most 'x'
             for (int i = 0; i <= str.length() - 1; i++) {
                 if (str.charAt(i) == 'x') {
                     rightMostXIndex = i;
-                    stringHasX = true;
                 }
             }
 
-            if (stringHasX) {
+            if (rightMostXIndex >= 0) {
                 //Now find if there is a y after this index
                 for (int i = rightMostXIndex; i <= str.length() - 1; i++) {
                     if (str.charAt(i) == 'y') {
                         return true;
                     }
                 }
-            } else {
-                return true;
+                return false;
             }
-
-            return false;
-        } else {
-            return true;
         }
+        
+        return true;
     }
 }
