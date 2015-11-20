@@ -11,6 +11,7 @@ public class XyBalance {
 //    xyBalance("aaxbb") → false
 //    xyBalance("yaaxbb") → false
 
+    //One way by finding the rightmost x first and then locating 'y's position
     public boolean xyBalance(String str) {
 
         if (str != null && str.length() != 0) {
@@ -33,7 +34,28 @@ public class XyBalance {
                 return false;
             }
         }
-        
+
+        return true;
+    }
+
+    //Another way by finding the rightmost y first and then finding 'x' is after
+    public boolean xyBalance2(String str) {
+
+        int rightMostYIndex = -1;
+
+        //Find right most 'y' character
+        for (int i = 0; i < str.length(); i++) {
+            if (str.charAt(i) == 'y') {
+                rightMostYIndex = i;
+            }
+        }
+
+        for (int i = 0; i < str.length(); i++) {
+            if (str.charAt(i) == 'x' && i > rightMostYIndex) {
+                return false;
+            }
+        }
+
         return true;
     }
 }
