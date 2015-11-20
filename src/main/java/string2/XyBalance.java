@@ -12,32 +12,33 @@ public class XyBalance {
 //    xyBalance("yaaxbb") → false
 
     public boolean xyBalance(String str) {
+
         if (str != null && str.length() != 0) {
-            int recentXIndex = 0;
-            boolean foundX = false;
-            //Find the index of the most recent 'x'
+            int rightMostXIndex = 0;
+            boolean stringHasX = false;
+
+            //Find the index of the right most 'x'
             for (int i = 0; i <= str.length() - 1; i++) {
                 if (str.charAt(i) == 'x') {
-                    recentXIndex = i;
-                    foundX = true;
+                    rightMostXIndex = i;
+                    stringHasX = true;
                 }
             }
 
-            if (!foundX && recentXIndex == 0) {
-                return true;
-            }
-
-
+            if (stringHasX) {
                 //Now find if there is a y after this index
-                for (int i = recentXIndex; i <= str.length() - 1; i++) {
+                for (int i = rightMostXIndex; i <= str.length() - 1; i++) {
                     if (str.charAt(i) == 'y') {
                         return true;
                     }
                 }
+            } else {
+                return true;
+            }
+
+            return false;
         } else {
             return true;
         }
-
-        return false;
     }
 }
