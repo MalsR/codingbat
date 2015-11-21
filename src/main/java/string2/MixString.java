@@ -19,28 +19,23 @@ public class MixString {
             return b;
         }
 
-        if (a.length() > b.length()) {
-            StringBuilder result = new StringBuilder();
+        StringBuilder result = new StringBuilder();
 
+        if (a.length() > b.length()) {
             for (int i = 0; i < b.length(); i++) {
                 result.append(a.charAt(i));
                 result.append(b.charAt(i));
             }
-
             result.append(a.substring(b.length(), a.length()));
 
-            return result.toString();
         } else {
-            StringBuilder result = new StringBuilder();
-
             for (int i = 0; i < a.length(); i++) {
                 result.append(a.charAt(i));
                 result.append(b.charAt(i));
             }
-
             result.append(b.substring(a.length(), b.length()));
 
-            return result.toString();
         }
+        return result.toString();
     }
 }
