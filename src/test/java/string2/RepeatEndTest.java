@@ -2,9 +2,7 @@ package string2;
 
 import org.junit.Test;
 
-import java.nio.channels.ReadPendingException;
-
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 public class RepeatEndTest {
 
@@ -26,20 +24,23 @@ public class RepeatEndTest {
     public void returnsRepeatableEndSectionOfStringWhenRepetitionNumberIsTwo() {
         RepeatEnd repeatEnd = new RepeatEnd();
 
-        assertEquals("", "yeye", repeatEnd.repeatEnd("Bye", 2));
+        assertEquals("Expected to return end section of string using the repeatable number as an index and " +
+                     "times the repeatable number", "yeye", repeatEnd.repeatEnd("Bye", 2));
     }
 
     @Test
     public void returnsRepeatableEndSectionOfStringWhenRepetitionNumberIsThree() {
         RepeatEnd repeatEnd = new RepeatEnd();
 
-        assertEquals("", "llollollo", repeatEnd.repeatEnd("Hello", 3));
+        assertEquals("Expected to return end section of string using the repeatable number as an index and " +
+                     "times the repeatable number", "llollollo", repeatEnd.repeatEnd("Hello", 3));
     }
 
     @Test
     public void returnsEmptyStringWhenStringToRepeatIsEmpty() {
         RepeatEnd repeatEnd = new RepeatEnd();
 
-        assertEquals("", "", repeatEnd.repeatEnd("", 1));
+        assertEquals("Expected to return empty string when given string to repeat is empty",
+                     "", repeatEnd.repeatEnd("", 1));
     }
 }
