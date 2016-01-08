@@ -6,22 +6,15 @@ import static org.junit.Assert.*;
 
 public class RepeatFrontTest {
 
-    @Test
-    public void shouldReturnStringWithPrefixRepeatedWhenTimesToRepeatIsTwo() {
-        RepeatFront repeatFront = new RepeatFront();
-
-        String actualString = repeatFront.repeatFront("Ice Cream", 2);
-
-        assertEquals("IcI", actualString);
-    }
+    private static final String message = "Expected a string to be return with the first N characters of the string, " +
+            "followed by returning the first n-1 characters of the string";
 
     @Test
-    public void shouldReturnStringPrefixRepeatedWhenTimesToRepeatIsFour() {
+    public void shouldReturnStringPrefixOfFirstNCharactersOfTheStringFollowedBy_N_MinusOne() {
         RepeatFront repeatFront = new RepeatFront();
 
-        String actualString = repeatFront.repeatFront("Chocolate", 4);
-
-        assertEquals("ChocChoChC", actualString);
+        assertEquals(message, "IcI", repeatFront.repeatFront("Ice Cream", 2));
+        assertEquals(message, "ChocChoChC", repeatFront.repeatFront("Chocolate", 4));
     }
 
     @Test

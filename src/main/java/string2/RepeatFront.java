@@ -14,6 +14,7 @@ public class RepeatFront {
     public String repeatFront(String str, int n) {
         StringBuilder result = new StringBuilder();
 
+        //i = n, starting from n and working lower. Stop the loop when i == 1 substring(0, 1) will return the first Char
         for (int i = n; i >= 1; i--) {
             String substring = str.substring(0, i);
             result.append(substring);
