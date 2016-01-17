@@ -21,4 +21,28 @@ public class PrefixAgain {
 
         return remainingString.contains(stringPrefix);
     }
+
+    //Using substring
+    public boolean prefixAgain2(String str, int n) {
+
+        if (n > str.length()) {
+            throw new IllegalArgumentException("Prefix length is greater than string length");
+        }
+
+        String stringPrefix = str.substring(0, n).toLowerCase();
+        int stringPrefixLength = stringPrefix.length();
+        String remainingString = str.substring(n, str.length()).toLowerCase();
+
+        for (int i = 0; i < remainingString.length(); i++) {
+            if (i + stringPrefixLength <= remainingString.length()) {
+                String subStringToCompare = remainingString.substring(i, i + stringPrefixLength);
+
+                if (stringPrefix.equalsIgnoreCase(subStringToCompare)) {
+                    return true;
+                }
+            }
+        }
+
+        return false;
+    }
 }
