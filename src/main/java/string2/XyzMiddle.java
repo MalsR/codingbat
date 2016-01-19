@@ -14,16 +14,21 @@ public class XyzMiddle {
         if (str.length() < 3) {
             return false;
         }
+
+        int midLengthOfString = str.length() / 2;
+        String xyz = "xyz";
+
         if (str.length() % 2 == 0) {
-            String subStringCloseToLeft = str.substring(str.length() / 2 - 2, str.length() / 2 + 1);
-            String subStringCloseToRight = str.substring(str.length() / 2 - 1, str.length() / 2 + 2);
+            String subStringCloseToLeft = str.substring(midLengthOfString - 2, midLengthOfString + 1);
+            String subStringCloseToRight = str.substring(midLengthOfString - 1, midLengthOfString + 2);
 
-            return subStringCloseToLeft.equalsIgnoreCase("xyz") || subStringCloseToRight.equalsIgnoreCase("xyz");
-
+            return subStringCloseToLeft.equalsIgnoreCase(xyz) || subStringCloseToRight.equalsIgnoreCase(xyz);
         } else {
-            int middleIndex = str.length() / 2 + 1;
+            //For even numbers, 9/2 = 4 + 1
+            int middleIndex = midLengthOfString + 1;
             String substring = str.substring(middleIndex - 2, middleIndex + 1);
-            return substring.equalsIgnoreCase("xyz");
+
+            return substring.equalsIgnoreCase(xyz);
         }
     }
 }
