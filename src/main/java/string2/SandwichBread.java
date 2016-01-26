@@ -1,6 +1,6 @@
 package string2;
 
-public class GetSandwich {
+public class SandwichBread {
     private static final String BREAD = "bread";
 
 //    A sandwich is two pieces of bread with something in between.
