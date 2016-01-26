@@ -12,4 +12,18 @@ public class GetSandwichTest {
 
         assertEquals("jam", getSandwich.getSandwich("breadjambread"));
     }
+
+    @Test
+    public void returnsEmptyStringIfWordBreadDoesNotSurroundAnyOtherWordInString() {
+        GetSandwich getSandwich = new GetSandwich();
+
+        assertEquals("", getSandwich.getSandwich("breadhello"));
+    }
+
+    @Test
+    public void returnsEmptyStringIfWordBreadDoesNotExist() {
+        GetSandwich getSandwich = new GetSandwich();
+
+        assertEquals("", getSandwich.getSandwich("breedhello"));
+    }
 }

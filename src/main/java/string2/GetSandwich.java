@@ -1,6 +1,7 @@
 package string2;
 
 public class GetSandwich {
+    private static final String BREAD = "bread";
 
 //    A sandwich is two pieces of bread with something in between.
 //    Return the string that is between the first and last appearance of "bread" in the given string,
@@ -19,21 +20,19 @@ public class GetSandwich {
             if (i + 5 <= str.length()) {
                 String substring = str.substring(i, i + 5);
 
-                if ("bread".equalsIgnoreCase(substring)) {
+                if (BREAD.equalsIgnoreCase(substring)) {
                     //Found instance of bread
                     if (!foundFirstInstance) {
                         startIndexOfFirst = i;
                         foundFirstInstance = true;
                     } else {
                         endIndexOfFirst = i;
-                        break;
+                        return str.substring(startIndexOfFirst + 5, endIndexOfFirst);
                     }
                 }
             }
         }
 
-        String result = str.substring(startIndexOfFirst + 5, endIndexOfFirst);
-
-        return result;
+        return "";
     }
 }
