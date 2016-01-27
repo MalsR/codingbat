@@ -1,5 +1,8 @@
 package string2;
 
+import java.util.Set;
+import java.util.TreeSet;
+
 public class SandwichBread {
     private static final String BREAD = "bread";
 
@@ -12,9 +15,7 @@ public class SandwichBread {
 //    getSandwich("xxbreadyy") → ""
 
     public String getSandwich(String str) {
-        int startIndexOfFirst = 0;
-        int endIndexOfFirst = 0;
-        boolean foundFirstInstance = false;
+        Set<Integer> breadIndexes = new TreeSet<>();
 
         for (int i = 0; i < str.length(); i++) {
             if (i + 5 <= str.length()) {
@@ -22,17 +23,22 @@ public class SandwichBread {
 
                 if (BREAD.equalsIgnoreCase(substring)) {
                     //Found instance of bread
-                    if (!foundFirstInstance) {
-                        startIndexOfFirst = i;
-                        foundFirstInstance = true;
-                    } else {
-                        endIndexOfFirst = i;
-                        return str.substring(startIndexOfFirst + 5, endIndexOfFirst);
-                    }
+                    breadIndexes.add(i);
+                    //Can also update 'i' to skip and start from end of 'd' if we already found an instance of bread
                 }
             }
         }
 
-        return "";
+        int breadIndexesSize = breadIndexes.size();
+        if (breadIndexes.isEmpty() || breadIndexesSize == 1) {
+            return "";
+        } else {
+            Integer[] integers = breadIndexes.toArray(new Integer[breadIndexesSize]);
+            //Start index of first appearance of bread
+            Integer startIndex = integers[0] + 5;
+            //End index of last appearance of bread
+            Integer endIndex = integers[breadIndexesSize - 1];
+            return str.substring(startIndex, endIndex);
+        }
     }
 }

@@ -7,24 +7,31 @@ import static org.junit.Assert.*;
 public class SandwichBreadTest {
 
     @Test
-    public void returnsWordInMiddleIfStringHasBreadPrefixAndSuffix() {
+    public void returnsStringInMiddleIfStringExistsBreadPrefixAndSuffix() {
         SandwichBread sandwichBread = new SandwichBread();
 
         assertEquals("jam", sandwichBread.getSandwich("breadjambread"));
     }
 
     @Test
-    public void returnsWordInMiddleIfWordBreadSurroundsAnyWordInString() {
+    public void returnsStringInMiddleIfStringBreadSurroundsAnyWordInString() {
         SandwichBread sandwichBread = new SandwichBread();
 
         assertEquals("jam", sandwichBread.getSandwich("xxbreadjambreadyy"));
     }
 
     @Test
-    public void returnsEmptyStringIfWordBreadDoesNotSurroundAnyOtherWordInString() {
+    public void returnsEmptyStringIfStringBreadDoesNotSurroundAnyOtherInString() {
         SandwichBread sandwichBread = new SandwichBread();
 
         assertEquals("", sandwichBread.getSandwich("breadhello"));
+    }
+
+    @Test
+    public void returnsStringInMiddleIfMoreThanTwoInstancesOfBreadSurroundsAnyWordInString() {
+        SandwichBread sandwichBread = new SandwichBread();
+
+        assertEquals("breadbutter", sandwichBread.getSandwich("xxbreadbreadbutterbreadxx"));
     }
 
     @Test
@@ -34,7 +41,10 @@ public class SandwichBreadTest {
         assertEquals("", sandwichBread.getSandwich("breedhello"));
     }
 
-    //TODO
-    //Test When string has only multiple instances of bread
-    //Should return "" when string has e.g. three instances of bread
+    @Test
+    public void returnsEmptyStringIfStringHasMultipleInstancesOfBreadOnly() {
+        SandwichBread sandwichBread = new SandwichBread();
+
+        assertEquals("", sandwichBread.getSandwich("breadbread"));
+    }
 }
