@@ -42,9 +42,16 @@ public class SandwichBreadTest {
     }
 
     @Test
-    public void returnsEmptyStringIfStringHasMultipleInstancesOfBreadOnly() {
+    public void returnsEmptyStringIfStringHasTwoInstancesOfBreadOnly() {
         SandwichBread sandwichBread = new SandwichBread();
 
         assertEquals("", sandwichBread.getSandwich("breadbread"));
+    }
+
+    @Test
+    public void returnsStringInMiddleIfOnlyMultipleInstacesOfBreadExists() {
+        SandwichBread sandwichBread = new SandwichBread();
+
+        assertEquals("breadbread", sandwichBread.getSandwich("breadbreadbreadbread"));
     }
 }
