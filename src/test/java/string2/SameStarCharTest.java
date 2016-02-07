@@ -42,11 +42,23 @@ public class SameStarCharTest {
     }
 
     @Test
-    public void returnsFalseWhenStringIsEmpty() {
+    public void returnsFalseWhenMultipleStarExistsWithDiffSurroundingChars() {
         SameStarChar sameStarChar = new SameStarChar();
 
-        assertFalse(sameStarChar.sameStarChar(""));
+        assertFalse(sameStarChar.sameStarChar("*xa*a*b"));
     }
 
-    //TODO additional tests
+    @Test
+    public void returnsTrueWithEmptyString() {
+        SameStarChar sameStarChar = new SameStarChar();
+
+        assertTrue(sameStarChar.sameStarChar(""));
+    }
+
+    @Test
+    public void returnsTrueWhenStringOnlyContainsSingleStar() {
+        SameStarChar sameStarChar = new SameStarChar();
+
+        assertTrue(sameStarChar.sameStarChar("*"));
+    }
 }

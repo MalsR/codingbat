@@ -8,28 +8,39 @@ public class SameStarChar {
 //    sameStarChar("xy*yzz") → true
 //    sameStarChar("xy*zzz") → false
 //    sameStarChar("*xa*az") → true
+//    Should return true when empty string
 
     public boolean sameStarChar(String str) {
+        boolean result = false;
+
+        if (str.length() == 0) {
+            return true;
+        }
 
         if (str.contains("*")) {
             //Has star now check
             for (int i = 0; i < str.length(); i++) {
                 char charToCheck = str.charAt(i);
 
-                //Simplify
-                if ('*' == charToCheck && i != 0) {
+                //Simplify getting untidy
+                if ('*' == charToCheck) {
+                    if (i == 0 && str.length() == 1) {
+                        return true;
+                    }
                     int beforeIndex = i - 1;
                     int afterIndex = i + 1;
-                    if (str.charAt(beforeIndex) == str.charAt(afterIndex)) {
-                        return true;
+                    if (beforeIndex > 0 && afterIndex <= str.length()-1) {
+                        if (str.charAt(beforeIndex) == str.charAt(afterIndex)) {
+                            result = true;
+                        } else {
+                            result = false;
+                        }
                     }
                 }
 
             }
-        } else {
-            return false;
         }
 
-        return false;
+        return result;
     }
 }
