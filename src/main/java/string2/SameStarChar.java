@@ -27,20 +27,19 @@ public class SameStarChar {
                     if (i == 0 && str.length() == 1) {
                         return true;
                     }
+
                     int beforeIndex = i - 1;
                     int afterIndex = i + 1;
-                    if (beforeIndex > 0 && afterIndex <= str.length()-1) {
-                        if (str.charAt(beforeIndex) == str.charAt(afterIndex)) {
-                            result = true;
-                        } else {
-                            result = false;
-                        }
+                    if (beforeAndAfterIndexIsWithinLength(beforeIndex, afterIndex, str.length())) {
+                        result = str.charAt(beforeIndex) == str.charAt(afterIndex);
                     }
                 }
-
             }
         }
-
         return result;
+    }
+
+    private boolean beforeAndAfterIndexIsWithinLength(int beforeIndex, int afterIndex, int stringLength) {
+        return beforeIndex > 0 && afterIndex <= stringLength - 1;
     }
 }
