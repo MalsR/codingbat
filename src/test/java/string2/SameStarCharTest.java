@@ -61,4 +61,6 @@ public class SameStarCharTest {
 
         assertTrue(sameStarChar.sameStarChar("*"));
     }
+
+    //TODO another test maybe to handle multiple chars??
 }
