@@ -19,15 +19,12 @@ public class OneTwo {
         }
 
         for (int i = 0; i < str.length(); i++) {
-            if (str.length() - i < 3) {
-                result.append(str.substring(i, str.length()));
-                break;
-            } else {
+            if (str.length() - i >= 3) {
                 char charAtIndex = str.charAt(i);
-                result.append(str.substring(i+1, i+3));
+                result.append(str.substring(i + 1, i + 3));
                 result.append(charAtIndex);
 
-                i+=2;
+                i += 2;
             }
         }
 

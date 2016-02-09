@@ -17,7 +17,7 @@ public class OneTwoTest {
     public void movesFirstCharToComeAfterNextTwoCharsAndIgnoreAnyCharGroupLessThanThreeInLength() {
         OneTwo oneTwo = new OneTwo();
 
-        assertEquals("catat", oneTwo.oneTwo("tcaat"));
+        assertEquals("cat", oneTwo.oneTwo("tcaat"));
     }
 
     @Test
@@ -25,6 +25,13 @@ public class OneTwoTest {
         OneTwo oneTwo = new OneTwo();
 
         assertEquals("dogeat", oneTwo.oneTwo("gdotea"));
+    }
+
+    @Test
+    public void movesFirstCharToComeAfterNextTwoChars_WhenStringLengthIsTwelve() {
+        OneTwo oneTwo = new OneTwo();
+
+        assertEquals("dogeatcatman", oneTwo.oneTwo("gdoteatcanma"));
     }
 
     @Test
