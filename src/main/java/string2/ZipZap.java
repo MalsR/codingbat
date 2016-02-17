@@ -11,30 +11,26 @@ public class ZipZap {
 
     public String zipZap(String str) {
 
-        if (str.contains("zip") || str.contains("zap")) {
-            StringBuilder result = new StringBuilder();
+        StringBuilder result = new StringBuilder();
 
-            for (int i = 0; i <= str.length() - 1; i++) {
-                char charAtIndex = str.charAt(i);
+        for (int i = 0; i <= str.length() - 1; i++) {
+            char charAtIndex = str.charAt(i);
 
-                if ('z' == charAtIndex) {
-                    //Now check for the next next char
-                    char nextNextChar = str.charAt(i + 2);
-                    if (nextNextChar == 'p') {
-                        result.append(charAtIndex);
-                        result.append(nextNextChar);
-                        i = i + 2;
-                    } else {
-                        result.append(charAtIndex);
-                    }
+            if ('z' == charAtIndex && str.length() - 1 >= i + 2) {
+                //Now check for the next next char
+                char nextNextChar = str.charAt(i + 2);
+                if (nextNextChar == 'p') {
+                    result.append(charAtIndex);
+                    result.append(nextNextChar);
+                    i += 2;
                 } else {
                     result.append(charAtIndex);
                 }
-
+            } else {
+                result.append(charAtIndex);
             }
-            return result.toString();
-        } else {
-            return str;
+
         }
+        return result.toString();
     }
 }

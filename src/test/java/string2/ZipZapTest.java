@@ -19,4 +19,32 @@ public class ZipZapTest {
 
         assertEquals("HellozpBye", zipZap.zipZap("HellozipBye"));
     }
+
+    @Test
+    public void returnsSameStringWhenStringContainsWordThatStartsWithZButDoesNotEndWithCharP() {
+        ZipZap zipZap = new ZipZap();
+
+        assertEquals("HelloTherezaz", zipZap.zipZap("HelloTherezaz"));
+    }
+
+    @Test
+    public void returnsUpdatedStringWhenLengthIsThreeAndStartsAndEndsWithZP() {
+        ZipZap zipZap = new ZipZap();
+
+        assertEquals("zp", zipZap.zipZap("zip"));
+    }
+
+    @Test
+    public void returnsSameStringWhenStringOnlyContainsCharacterZ() {
+        ZipZap zipZap = new ZipZap();
+
+        assertEquals("z", zipZap.zipZap("z"));
+    }
+
+    @Test
+    public void returnsSameStringWhenStringIsEmpty() {
+        ZipZap zipZap = new ZipZap();
+
+        assertEquals("", zipZap.zipZap(""));
+    }
 }
