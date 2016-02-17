@@ -16,21 +16,21 @@ public class ZipZap {
         for (int i = 0; i <= str.length() - 1; i++) {
             char charAtIndex = str.charAt(i);
 
-            if ('z' == charAtIndex && str.length() - 1 >= i + 2) {
-                //Now check for the next next char
-                char nextNextChar = str.charAt(i + 2);
-                if (nextNextChar == 'p') {
-                    result.append(charAtIndex);
-                    result.append(nextNextChar);
-                    i += 2;
-                } else {
-                    result.append(charAtIndex);
-                }
+            if ('z' == charAtIndex && doesNextNextCharacterEndsWithP(str, i)) {
+                result.append("zp");
+                //Add 2 to i so we do not check for 'p' and move to next
+                i += 2;
             } else {
                 result.append(charAtIndex);
             }
-
         }
+
         return result.toString();
+    }
+
+    private boolean doesNextNextCharacterEndsWithP(String stringToCheck, int i) {
+        int stringLength = stringToCheck.length();
+
+        return stringLength - 1 >= i + 2 && 'p' == stringToCheck.charAt(i + 2);
     }
 }
