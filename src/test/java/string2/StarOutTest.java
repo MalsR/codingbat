@@ -19,4 +19,11 @@ public class StarOutTest {
 
         assertEquals("Hello", starOut.starOut("Hello"));
     }
+
+    @Test
+    public void removesCharactersSurroundingMultipleStarsTogether() {
+        StarOut starOut = new StarOut();
+
+        assertEquals("ad", starOut.starOut("ab**cd"));
+    }
 }
