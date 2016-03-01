@@ -12,4 +12,11 @@ public class StarOutTest {
 
         assertEquals("Hello", starOut.starOut("Heb*pllo"));
     }
+
+    @Test
+    public void returnsSameStringWhenNoStarIsPresent() {
+        StarOut starOut = new StarOut();
+
+        assertEquals("Hello", starOut.starOut("Hello"));
+    }
 }
