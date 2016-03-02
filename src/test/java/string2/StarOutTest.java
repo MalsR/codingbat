@@ -54,4 +54,11 @@ public class StarOutTest {
 
         assertEquals("", starOut.starOut(""));
     }
+
+    @Test
+    public void returnsEmptyStringWhenItOnlyContainsStar() {
+        StarOut starOut = new StarOut();
+
+        assertEquals("", starOut.starOut("*"));
+    }
 }
