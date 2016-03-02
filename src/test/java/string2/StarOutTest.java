@@ -26,4 +26,25 @@ public class StarOutTest {
 
         assertEquals("ad", starOut.starOut("ab**cd"));
     }
+
+    @Test
+    public void removesCharactersSurroundingMultipleStarsSpreadAcross() {
+        StarOut starOut = new StarOut();
+
+        assertEquals("adefjmn", starOut.starOut("ab**cdefg*ijh*lmn"));
+    }
+
+    @Test
+    public void removesCharactersSurroundingStarWhenBeginningOfString() {
+        StarOut starOut = new StarOut();
+
+        assertEquals("bcd", starOut.starOut("*abcd"));
+    }
+
+    @Test
+    public void removesCharactersSurroundingStarWhenEndOfString() {
+        StarOut starOut = new StarOut();
+
+        assertEquals("abc", starOut.starOut("abcd*"));
+    }
 }
