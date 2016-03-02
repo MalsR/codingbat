@@ -14,7 +14,7 @@ public class StarOutTest {
     }
 
     @Test
-    public void returnsSameStringWhenNoStarIsPresent() {
+    public void returnsSameStringUnchangedWhenNoStarIsPresent() {
         StarOut starOut = new StarOut();
 
         assertEquals("Hello", starOut.starOut("Hello"));
@@ -46,5 +46,12 @@ public class StarOutTest {
         StarOut starOut = new StarOut();
 
         assertEquals("abc", starOut.starOut("abcd*"));
+    }
+
+    @Test
+    public void returnsStringUnchangedWhenEmpty() {
+        StarOut starOut = new StarOut();
+
+        assertEquals("", starOut.starOut(""));
     }
 }
