@@ -22,9 +22,23 @@ public class PlusOutTest {
     }
 
     @Test
-    public void returnsStringReplacedWithPlusesOnWordsToFilter() {
+    public void returnsStringReplacedWithPlusesExcludingWordToFilter() {
         PlusOut plusOut = new PlusOut();
 
         assertEquals("++xy++", plusOut.plusOut("12xy34", "xy"));
+    }
+
+    @Test
+    public void returnsStringReplacedWithPlusesExcludingWordToFilterWithMultipleOccurrences() {
+        PlusOut plusOut = new PlusOut();
+
+        assertEquals("++xy++++xy+++++++++", plusOut.plusOut("12xy3456xyz890xd982", "xy"));
+    }
+
+    @Test
+    public void returnsStringReplacedWithPlusesWhenWordToExcludeIsAtEndOfString() {
+        PlusOut plusOut = new PlusOut();
+
+        assertEquals("+++++xy", plusOut.plusOut("Helloxy", "xy"));
     }
 }
