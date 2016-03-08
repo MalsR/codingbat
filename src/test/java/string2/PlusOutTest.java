@@ -15,9 +15,16 @@ public class PlusOutTest {
     }
 
     @Test
-    public void returnsEmptyStringWhenEmpty() {
+    public void returnsEmptyStringWhenStringToReplaceIsEmpty() {
         PlusOut plusOut = new PlusOut();
 
         assertEquals("", plusOut.plusOut("", "ate"));
+    }
+
+    @Test
+    public void returnsStringReplacedWithPlusesOnWordsToFilter() {
+        PlusOut plusOut = new PlusOut();
+
+        assertEquals("++xy++", plusOut.plusOut("12xy34", "xy"));
     }
 }

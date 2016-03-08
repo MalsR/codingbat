@@ -1,5 +1,8 @@
 package string2;
 
+import java.util.HashSet;
+import java.util.Set;
+
 public class PlusOut {
 
     // Given a string and a non-empty word string,
@@ -12,16 +15,31 @@ public class PlusOut {
 
     public String plusOut(String str, String word) {
 
+        Set<Character> charsToExclude = new HashSet<>();
+        for (int i = 0; i <= word.length() - 1; i++) {
+            char characterAtIndex = word.charAt(i);
+            charsToExclude.add(characterAtIndex);
+        }
+
+        StringBuilder result = new StringBuilder();
         if (str.contains(word)) {
-            throw new IllegalStateException("Implement happy case");
+            //
+            for (int i = 0; i <= str.length() - 1; i++) {
+                char characterAtIndex = str.charAt(i);
+                if (charsToExclude.contains(characterAtIndex)) {
+                    result.append(characterAtIndex);
+                } else {
+                    result.append("+");
+                }
+            }
+
         } else {
-            StringBuilder result = new StringBuilder();
 
             for (int i = 0; i < str.length() - 1; i++) {
                 result.append("+");
             }
 
-            return result.toString();
         }
+        return result.toString();
     }
 }
