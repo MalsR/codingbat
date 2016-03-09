@@ -18,15 +18,20 @@ public class WordEnds {
 
         for (int i = 0; i <= str.length() - 1; i++) {
             //Check to ensure that no out of bounds exception on substring
-            if (i + word.length() <= str.length() - 1) {
+            if (i + word.length() <= str.length()) {
                 String subStringToCheck = str.substring(i, i + word.length());
 
                 if (word.equalsIgnoreCase(subStringToCheck)) {
                     //then we found a match and now check before and after chars (if applicable)
-                    char beforeChar = str.charAt(i - 1);
-                    char afterChar = str.charAt(i + word.length());
-                    result.append(beforeChar);
-                    result.append(afterChar);
+                    if (i - 1 >= 0) {
+                        char beforeChar = str.charAt(i - 1);
+                        result.append(beforeChar);
+                    }
+
+                    if (i + word.length() <= str.length() - 1) {
+                        char afterChar = str.charAt(i + word.length());
+                        result.append(afterChar);
+                    }
                 }
             }
         }
