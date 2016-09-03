@@ -21,7 +21,7 @@ public class CountCodeTest {
     }
 
     @Test
-    public void returnsTwoWhenWordCoXeAppearsWithXAsWildcardCharacter() {
+    public void returnsTwoWhenWordCoXeAppearsTwiceWithXAsWildcardCharacter() {
         CountCode countCode = new CountCode();
 
         assertEquals("Expected to return two as the words coze & cope exists", 2, countCode.countCode("cozexxcope"));

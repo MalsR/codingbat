@@ -18,9 +18,9 @@ public class CountCode {
 
             if (charAtIndex == 'c' && (i + 4) <= str.length()) {
                 //Then use substring to get string that includes the 4 next chars including the charAtIndex
-                String subStringWord = str.substring(i, i + 4);
+                String stringToCheck = str.substring(i, i + 4);
 
-                if (subStringWord.charAt(1) == 'o' && subStringWord.charAt(3) == 'e') {
+                if (stringToCheck.charAt(1) == 'o' && stringToCheck.charAt(3) == 'e') {
                     result++;
                 }
             }
