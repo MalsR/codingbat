@@ -12,11 +12,12 @@ public class ZipZap {
     public String zipZap(String str) {
 
         StringBuilder result = new StringBuilder();
+        int stringLengthToCheck = str.length() - 1;
 
-        for (int i = 0; i <= str.length() - 1; i++) {
+        for (int i = 0; i <= stringLengthToCheck; i++) {
             char charAtIndex = str.charAt(i);
 
-            if ('z' == charAtIndex && doesNextNextCharacterEndsWithP(str, i)) {
+            if ('z' == charAtIndex && doesGivenIndexPositionEndWithCharacterP(str, i + 2)) {
                 result.append("zp");
                 //Add 2 to i so we do not check for 'p' and move to next
                 i += 2;
@@ -28,9 +29,9 @@ public class ZipZap {
         return result.toString();
     }
 
-    private boolean doesNextNextCharacterEndsWithP(String stringToCheck, int i) {
+    private boolean doesGivenIndexPositionEndWithCharacterP(String stringToCheck, int indexPosition) {
         int stringLength = stringToCheck.length();
 
-        return stringLength - 1 >= i + 2 && 'p' == stringToCheck.charAt(i + 2);
+        return stringLength - 1 >= indexPosition && 'p' == stringToCheck.charAt(indexPosition);
     }
 }
