@@ -14,7 +14,7 @@ public class XyzThereTest {
     }
 
     @Test
-    public void returnsTrueWhenStringOnlyContainsXya() {
+    public void returnsTrueWhenStringOnlyContainsXyz() {
         XyzThere xyzThere = new XyzThere();
 
         assertTrue("", xyzThere.xyzThere("xyz"));
@@ -38,13 +38,13 @@ public class XyzThereTest {
     public void returnsTrueWhenXyzAppearsBeforeFullStop() {
         XyzThere xyzThere = new XyzThere();
 
-        assertTrue("", xyzThere.xyzThere("abcxyz.abc"));
+        assertTrue("Expected to return true as xyz precedes fullstop", xyzThere.xyzThere("abcxyz.abc"));
     }
 
     @Test
     public void returnsTrueWhenXyzAppearsAfterFullStop() {
         XyzThere xyzThere = new XyzThere();
 
-        assertTrue(xyzThere.xyzThere("abc.xyzbbxyz"));
+        assertTrue("Expected to return true as fullstop precedes xyz", xyzThere.xyzThere("abc.xyzbbxyz"));
     }
 }

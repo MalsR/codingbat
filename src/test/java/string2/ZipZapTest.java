@@ -7,7 +7,7 @@ import static org.junit.Assert.*;
 public class ZipZapTest {
 
     @Test
-    public void returnsSameStringWhenZipAndZapDoesNotExist() {
+    public void returnsSameStringWhenZipNorZapDoesNotExist() {
         ZipZap zipZap = new ZipZap();
 
         assertEquals("HelloThere", zipZap.zipZap("HelloThere"));

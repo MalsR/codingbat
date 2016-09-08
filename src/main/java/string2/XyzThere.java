@@ -2,7 +2,9 @@ package string2;
 
 public class XyzThere {
 
-//    Return true if the given string contains an appearance of "xyz" where the xyz is not directly preceeded by
+    private static final String XYZ = "xyz";
+
+//    Return true if the given string contains an appearance of "xyz" where the xyz is not directly preceded by
 //    a period (.).
 //
 //    So "xxyz" counts but "x.xyz" does not.
@@ -14,17 +16,18 @@ public class XyzThere {
     public boolean xyzThere(String str) {
 
         boolean result = false;
+        int length = str.length();
 
-        for (int i = 0; i < str.length(); i++) {
+        for (int i = 0; i < length; i++) {
             char charAtIndex = str.charAt(i);
 
-            if (charAtIndex == 'x' && (i + 3 <= str.length())) {
+            if (charAtIndex == 'x' && nextThreeCharsDoesNotExceedStringLength(length, i)) {
 
-                //If i is zero then x is the start of the string OR check if the char before i is not full stop '.'
-                if (i == 0 || '.' != str.charAt(i - 1)) {
+                //If 'i' is zero then x cannot be preceded by '.' OR check if the char before i is not preceded by '.'
+                if (i == 0 || characterIsNotPrecededByDotOperator(str, i)) {
                     String subString = str.substring(i, i + 3);
 
-                    if ("xyz".equalsIgnoreCase(subString)) {
+                    if (XYZ.equalsIgnoreCase(subString)) {
                         result = true;
                         break;
                     }
@@ -33,5 +36,13 @@ public class XyzThere {
         }
 
         return result;
+    }
+
+    private boolean nextThreeCharsDoesNotExceedStringLength(int stringLength, int i) {
+        return i + 3 <= stringLength;
+    }
+
+    private boolean characterIsNotPrecededByDotOperator(String str, int i) {
+        return '.' != str.charAt(i - 1);
     }
 }
